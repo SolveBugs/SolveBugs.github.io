@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识点总结," />
+  <meta name="keywords" content="Gradle," />
 
 
 
@@ -86,19 +86,30 @@
 
 
 
-<meta name="description" content="Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中ViewGroup又继承于View。
-ViewGroup和View组成了一个树状结构，根节点为Act">
+<meta name="description" content="Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
+
+Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。
+
+通常，在项目根目录下的build.grad">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件分发主要过程">
-<meta property="og:url" content="//litten.me/2017/01/17/事件分发主要过程/index.html">
+<meta property="og:title" content="Gradle 和Gradle Plugin区别">
+<meta property="og:url" content="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中ViewGroup又继承于View。
-ViewGroup和View组成了一个树状结构，根节点为Act">
-<meta property="og:updated_time" content="2017-01-17T05:28:59.000Z">
+<meta property="og:description" content="Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
+
+Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。
+
+通常，在项目根目录下的build.grad">
+<meta property="og:image" content="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png">
+<meta property="og:updated_time" content="2017-04-26T05:43:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事件分发主要过程">
-<meta name="twitter:description" content="Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中ViewGroup又继承于View。
-ViewGroup和View组成了一个树状结构，根节点为Act">
+<meta name="twitter:title" content="Gradle 和Gradle Plugin区别">
+<meta name="twitter:description" content="Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
+
+Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。
+
+通常，在项目根目录下的build.grad">
+<meta name="twitter:image" content="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png">
 
 
 
@@ -126,13 +137,13 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
 
 
 
-  <link rel="canonical" href="//litten.me/2017/01/17/事件分发主要过程/"/>
+  <link rel="canonical" href="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/"/>
 
 
 
 
 
-  <title> 事件分发主要过程 | Blogs </title>
+  <title> Gradle 和Gradle Plugin区别 | Blogs </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +264,7 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="//litten.me/2017/01/17/事件分发主要过程/">
+  <link itemprop="mainEntityOfPage" href="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="山水相逢-z">
@@ -277,7 +288,7 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
             
             
               
-                事件分发主要过程
+                Gradle 和Gradle Plugin区别
               
             
           </h1>
@@ -290,8 +301,8 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-17T13:26:19+08:00">
-                2017-01-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T13:24:11+08:00">
+                2017-04-26
               </time>
             
 
@@ -306,8 +317,8 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/01/17/事件分发主要过程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/17/事件分发主要过程/" itemprop="commentCount"></span>
+                <a href="/2017/04/26/Gradle-和Gradle-Plugin区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/26/Gradle-和Gradle-Plugin区别/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -317,7 +328,7 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
 
           
           
-             <span id="/2017/01/17/事件分发主要过程/" class="leancloud_visitors" data-flag-title="事件分发主要过程">
+             <span id="/2017/04/26/Gradle-和Gradle-Plugin区别/" class="leancloud_visitors" data-flag-title="Gradle 和Gradle Plugin区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,15 +353,27 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
       
 
       
-        <ol>
-<li>Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中ViewGroup又继承于View。</li>
-<li>ViewGroup和View组成了一个树状结构，根节点为Activity内部包含的一个ViwGroup。</li>
-<li>触摸事件由Action_Down、Action_Move、Aciton_UP组成，其中一次完整的触摸事件中，Down和Up都只有一个，Move有若干个，可以为0个。</li>
-<li>当Acitivty接收到Touch事件时，将遍历子View进行Down事件的分发。ViewGroup的遍历可以看成是递归的。分发的目的是为了找到真正要处理本次完整触摸事件的View，这个View会在onTouchuEvent结果返回true。</li>
-<li>当某个子View返回true时，会中止Down事件的分发，同时在ViewGroup中记录该子View。接下去的Move和Up事件将由该子View直接进行处理。由于子View是保存在ViewGroup中的，多层ViewGroup的节点结构时，上级ViewGroup保存的会是真实处理事件的View所在的ViewGroup对象:如ViewGroup0-ViewGroup1-TextView的结构中，TextView返回了true，它将被保存在ViewGroup1中，而ViewGroup1也会返回true，被保存在ViewGroup0中。当Move和UP事件来时，会先从ViewGroup0传递至ViewGroup1，再由ViewGroup1传递至TextView。</li>
-<li>当ViewGroup中所有子View都不捕获Down事件时，将触发ViewGroup自身的onTouch事件。触发的方式是调用super.dispatchTouchEvent函数，即父类View的dispatchTouchEvent方法。在所有子View都不处理的情况下，触发Acitivity的onTouchEvent方法。</li>
-<li>onInterceptTouchEvent有两个作用：1.拦截Down事件的分发。2.中止Up和Move事件向目标View传递，使得目标View所在的ViewGroup捕获Up和Move事件。</li>
-</ol>
+        <ul>
+<li><p>Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。</p>
+</li>
+<li><p>Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。</p>
+</li>
+<li><p>通常，在项目根目录下的build.gradle文件中设置Gradle Plugin版本：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">   	。。。</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.3.1'</span></div><div class="line">    &#125;</div><div class="line">    。。。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在 根目录/gradle/wrapper/gradle-wrapper.properties中配置Gradle下载路径：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-3.3-all.zip</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Gradle与Android Studio中的Gradle插件之间有对应关系：</p>
+<p><img src="/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png" alt="version-version"></p>
+</li>
+<li><p>相关官方介绍：</p>
+<p><a href="https://developer.android.com/studio/releases/gradle-plugin.html#updating-gradle" target="_blank" rel="external">Android Plugin for Gradle Release Notes</a></p>
+<p><a href="http://tools.android.com/tech-docs/new-build-system" target="_blank" rel="external">Android Plugin各版本主要更新功能</a></p>
+<p><a href="http://services.gradle.org/distributions/" target="_blank" rel="external">Gradle版本列表</a></p>
+<p>​</p>
+</li>
+</ul>
 
       
     </div>
@@ -374,7 +397,7 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
       
         <div class="post-tags">
           
-            <a href="/tags/知识点总结/" rel="tag"># 知识点总结</a>
+            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
           
         </div>
       
@@ -383,15 +406,15 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/14/Butter-Knife使用/" rel="next" title="Butter Knife使用">
+                <i class="fa fa-chevron-left"></i> Butter Knife使用
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/13/让你的app有声音/" rel="prev" title="让你的app有声音">
-                让你的app有声音 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -617,9 +640,9 @@ ViewGroup和View组成了一个树状结构，根节点为Act">
 
     <script type="text/javascript">
       var disqus_shortname = 'comments';
-      var disqus_identifier = '2017/01/17/事件分发主要过程/';
+      var disqus_identifier = '2017/04/26/Gradle-和Gradle-Plugin区别/';
 
-      var disqus_title = "事件分发主要过程";
+      var disqus_title = "Gradle 和Gradle Plugin区别";
 
 
       function run_disqus_script(disqus_script) {
