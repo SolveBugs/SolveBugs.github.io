@@ -260,7 +260,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="山水相逢-z">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -312,6 +312,17 @@
 
           
           
+             <span id="/2017/04/26/Gradle-和Gradle-Plugin区别/" class="leancloud_visitors" data-flag-title="Gradle 和Gradle Plugin区别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -331,29 +342,18 @@
       
         
           
-            <ul>
-<li><p>Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。</p>
-</li>
-<li><p>Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。</p>
-</li>
-<li><p>通常，在项目根目录下的build.gradle文件中设置Gradle Plugin版本：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">   	。。。</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.3.1'</span></div><div class="line">    &#125;</div><div class="line">    。。。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在 根目录/gradle/wrapper/gradle-wrapper.properties中配置Gradle下载路径：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-3.3-all.zip</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>Gradle与Android Studio中的Gradle插件之间有对应关系：</p>
-<p><img src="/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png" alt="version-version"></p>
-</li>
-<li><p>相关官方介绍：</p>
-<p><a href="https://developer.android.com/studio/releases/gradle-plugin.html#updating-gradle" target="_blank" rel="external">Android Plugin for Gradle Release Notes</a></p>
-<p><a href="http://tools.android.com/tech-docs/new-build-system" target="_blank" rel="external">Android Plugin各版本主要更新功能</a></p>
-<p><a href="http://services.gradle.org/distributions/" target="_blank" rel="external">Gradle版本列表</a></p>
-<p>​</p>
-</li>
-</ul>
-
           
+Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
+
+Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/26/Gradle-和Gradle-Plugin区别/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -400,7 +400,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="山水相逢-z">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -452,6 +452,17 @@
 
           
           
+             <span id="/2017/04/14/Butter-Knife使用/" class="leancloud_visitors" data-flag-title="Butter Knife使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -471,59 +482,15 @@
       
         
           
-            <h2 id="Butter-Knife用法总结"><a href="#Butter-Knife用法总结" class="headerlink" title="Butter Knife用法总结"></a>Butter Knife用法总结</h2><h5 id="一-导入"><a href="#一-导入" class="headerlink" title="一 导入"></a>一 导入</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">  compile <span class="string">'com.jakewharton:butterknife:8.5.1'</span></div><div class="line">  annotationProcessor <span class="string">'com.jakewharton:butterknife-compiler:8.5.1'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>目前最新版为8.5.1</p>
-<h5 id="二-用法"><a href="#二-用法" class="headerlink" title="二 用法"></a>二 用法</h5><ul>
-<li><p>单个控件绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.title) TextView title;<span class="comment">//@BindView注解加控件id标注要查找的控件</span></div><div class="line">  <span class="meta">@BindView</span>(R.id.subtitle) TextView subtitle;</div><div class="line">  <span class="meta">@BindView</span>(R.id.footer) TextView footer;</div><div class="line">  </div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.simple_activity);</div><div class="line">    ButterKnife.bind(<span class="keyword">this</span>);<span class="comment">//在当前activity自动绑定</span></div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>资源绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="meta">@BindString</span>(R.string.title) String title;<span class="comment">//@BindString注解加资源id标注要查找的资源</span></div><div class="line">  <span class="meta">@BindDrawable</span>(R.drawable.graphic) Drawable graphic;</div><div class="line">  <span class="meta">@BindColor</span>(R.color.red) <span class="keyword">int</span> red; <span class="comment">// int or ColorStateList field</span></div><div class="line">  <span class="meta">@BindDimen</span>(R.dimen.spacer) Float spacer; <span class="comment">// int (for pixel size) or float (for exact value) field</span></div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>根据自定义的根布局来自动绑定布局里的控件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FancyFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button1) Button button1;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button2) Button button2;</div><div class="line">  </div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    View view = inflater.inflate(R.layout.fancy_fragment, container, <span class="keyword">false</span>);</div><div class="line">    ButterKnife.bind(<span class="keyword">this</span>, view);<span class="comment">//自动绑定Activity根部局控件的时候直接传this即可</span></div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在adapter里绑定控件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View view, ViewGroup parent)</span> </span>&#123;</div><div class="line">    ViewHolder holder;</div><div class="line">    <span class="keyword">if</span> (view != <span class="keyword">null</span>) &#123;</div><div class="line">      holder = (ViewHolder) view.getTag();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      view = inflater.inflate(R.layout.whatever, parent, <span class="keyword">false</span>);<span class="comment">//item布局</span></div><div class="line">      holder = <span class="keyword">new</span> ViewHolder(view);<span class="comment">//传给ViewHolder</span></div><div class="line">      view.setTag(holder);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    holder.name.setText(<span class="string">"John Doe"</span>);</div><div class="line">    <span class="comment">// etc...</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">    <span class="meta">@BindView</span>(R.id.title) TextView name;</div><div class="line">    <span class="meta">@BindView</span>(R.id.job_title) TextView jobTitle;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">      ButterKnife.bind(<span class="keyword">this</span>, view);<span class="comment">//其实就是根据我们自己提供的根布局来绑定控件</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>控件集合绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@BindViews</span>(&#123; R.id.first_name, R.id.middle_name, R.id.last_name &#125;)</div><div class="line">List&lt;EditText&gt; nameViews;</div></pre></td></tr></table></figure>
-</li>
-<li><p>同时操作多个控件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ButterKnife.apply(nameViews, DISABLE);</div><div class="line">ButterKnife.apply(nameViews, ENABLED, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
-<p>DISABLE,ENABLED是ButterKnife提供的一种数据类型ButterKnife.Action<view>，它是一个接口，需要我们根据需求实现其中的apply()方法，这里：</view></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ButterKnife.Action&lt;View&gt; DISABLE = <span class="keyword">new</span> ButterKnife.Action&lt;View&gt;() &#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">apply</span><span class="params">(View view, <span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">    view.setEnabled(<span class="keyword">false</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ButterKnife.Setter&lt;View, Boolean&gt; ENABLED = <span class="keyword">new</span> ButterKnife.Setter&lt;View, Boolean&gt;() &#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(View view, Boolean value, <span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">    view.setEnabled(value);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>注意：ButterKnife.apply具有多个重载方法，例如还可以设置属性等：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ButterKnife.apply(nameViews, View.ALPHA, <span class="number">0.0f</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><p>单个控件事件绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@OnClick</span>(R.id.submit)<span class="comment">//注解控件</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(View view)</span> </span>&#123;<span class="comment">//点击控件后触发的方法，参数可选</span></div><div class="line">  <span class="comment">// TODO submit data to server...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>多个控件事件绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@OnClick</span>(&#123; R.id.door1, R.id.door2, R.id.door3 &#125;)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">  <span class="keyword">switch</span>(view.getId())&#123;</div><div class="line">    <span class="keyword">case</span> R.id.door1:</div><div class="line">      <span class="comment">//todo something</span></div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> R.id.door2:</div><div class="line">      <span class="comment">//todo something</span></div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> R.id.door3:</div><div class="line">      <span class="comment">//todo something</span></div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>绑定重置</p>
-<p>与Activity相比，Fragment的视图具有不同的生命周期，在onCreateView中绑定视图的时候，Butter Knife会返回一个Unbinder类型的对象，我们可以在合适的生命周期回调方法中调用它unbind()方法来解除绑定。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FancyFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button1) Button button1;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button2) Button button2;</div><div class="line">  <span class="keyword">private</span> Unbinder unbinder;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    View view = inflater.inflate(R.layout.fancy_fragment, container, <span class="keyword">false</span>);</div><div class="line">    unbinder = ButterKnife.bind(<span class="keyword">this</span>, view);<span class="comment">//返回unbinder对象</span></div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroyView</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDestroyView();</div><div class="line">    unbinder.unbind();<span class="comment">//解除绑定</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>可选绑定（OPTIONAL BINDINGS）</p>
-<p>通常，控件绑定与事件绑定我们都需要，但是如果没有找不到目标view的话会报错，为了避免这种情况，可以用@Nullable和@Optional这两个注解，如果找不到目标view存在，就自动绑定，不存在，也不会出错。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Nullable</span> <span class="meta">@BindView</span>(R.id.might_not_be_there) TextView mightNotBeThere;</div><div class="line"></div><div class="line"><span class="meta">@Optional</span> <span class="meta">@OnClick</span>(R.id.maybe_missing) <span class="function"><span class="keyword">void</span> <span class="title">onMaybeMissingClicked</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">// TODO ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>ButterKnife.findById()</p>
-<p>Butter Knife提供了一个findById()的方法，它主要用来简化控件类型转化：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">View view = LayoutInflater.from(context).inflate(R.layout.thing, <span class="keyword">null</span>);</div><div class="line">TextView firstName = ButterKnife.findById(view, R.id.first_name);</div><div class="line">TextView lastName = ButterKnife.findById(view, R.id.last_name);</div><div class="line">ImageView photo = ButterKnife.findById(view, R.id.photo);</div></pre></td></tr></table></figure>
-<p>findById()有两个参数，第一个是目标view，有三种类型：View,Activity,Dialog，第二个参数是要查找的控件id。它主要是通过返回泛型来自动执行类型转换。</p>
-</li>
-</ul>
-<h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><ol>
-<li><p>[]: <a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">http://jakewharton.github.io/butterknife/</a></p>
-</li>
-<li><p>[]: <a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">https://github.com/JakeWharton/butterknife</a></p>
-</li>
-</ol>
-
-          
+          Butter Knife用法总结一 导入1234dependencies &#123;  compile 'com.jakewharton:butterknife:8.5.1'  annotationProcessor 'com.jakewharton:butterknife-compiler:8.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/14/Butter-Knife使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -570,7 +537,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="山水相逢-z">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -622,6 +589,17 @@
 
           
           
+             <span id="/2017/04/13/让你的app有声音/" class="leancloud_visitors" data-flag-title="让你的app有声音">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -641,37 +619,15 @@
       
         
           
-            <p>之前写过一篇文章，当时的需求是播放英文，最后使用的是Androi自带的TextToSpeech类来实现（<a href="http://blog.csdn.net/weixin_38251977/article/details/69944088），虽然播放英文效果还行，但是对中文的支持不是很好。最近新项目中又遇到一个语音的需求，这次是中英文都有，各种对比之后，选择了百度语音离在线融合SDK,播放效果非常好，关键是免费。趁着有空，记录下集成步骤，抽成一个demo，下次有需要的时候可以直接套用。" target="_blank" rel="external">http://blog.csdn.net/weixin_38251977/article/details/69944088），虽然播放英文效果还行，但是对中文的支持不是很好。最近新项目中又遇到一个语音的需求，这次是中英文都有，各种对比之后，选择了百度语音离在线融合SDK,播放效果非常好，关键是免费。趁着有空，记录下集成步骤，抽成一个demo，下次有需要的时候可以直接套用。</a></p>
-<p>一 前提步骤</p>
-<p>首先，需要在百度语音官网注册一个账号，然后创建应用，创建一个应用的大致步骤如下图：</p>
-<p><img src="/2017/04/13/让你的app有声音/image1.png" alt="logo"></p>
-<p>注册完应用后，根据我们给的包名，会生成对应的appid，apikey和secretkey，这几个参数在我们代码中会使用到。</p>
-<p>二 代码集成</p>
-<ol>
-<li>拷贝资源文件<br>在上边儿注册应用的时候，我们已经把SDK下载下来了，在里边儿我们找到需要的jar包，so文件以及语音模型拷贝到我们的项目中，各资源文件对应目录如下：<br><img src="/2017/04/13/让你的app有声音/image2.png" alt="logo"><br>因为我的项目中只有armeabi架构，所以只拷贝了对应的资源，这个需要根据实际情况添加。</li>
-<li>配置build文件<br>将jar包等拷贝到项目中后，还需要配置工程目录下的build.gradle文件以添加依赖。<br>首先，在android闭包中添加：<pre><code>android {
-    sourceSets{
-        main{
-            jniLibs.srcDirs=[&apos;libs&apos;]
-        }
-    }
-}
-</code></pre>这样Android Studio就能识别我们放在libs文件夹下的so文件了，不然的话运行的时候会报找不到so文件的错误。<br>然后，在dependencies闭包中添加：<pre><code>compile files(&apos;libs/com.baidu.tts_2.3.0.jar&apos;)
-</code></pre>到这里我们可以同步一下项目了，然后就可以在代码中使用jar包提供的方法了。</li>
-<li>添加权限<br>在清单文件中声明所需的权限：<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.MODIFY_AUDIO_SETTINGS&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot; /&gt;
-</code></pre></li>
-<li>demo<br>关于具体的使用方法，这里抽成了一个demo，代码我已经测试过了，运行没有问题（demo里只支持armeabi框架，你可以将官方sdk的所有架构对应的so文件都拷贝进去），代码址：<a href="https://github.com/SolveBugs/BaiduTTSDemo" target="_blank" rel="external">https://github.com/SolveBugs/BaiduTTSDemo</a></li>
-</ol>
-
-          
+          之前写过一篇文章，当时的需求是播放英文，最后使用的是Androi自带的TextToSpeech类来实现（http://blog.csdn.net/weixin_38251977/article/details/69944088），虽然播放英文效果还行，但是对中文的支持不是很好。最近新项目中又遇到一个
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/13/让你的app有声音/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -718,7 +674,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="山水相逢-z">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -770,6 +726,17 @@
 
           
           
+             <span id="/2017/01/17/事件分发主要过程/" class="leancloud_visitors" data-flag-title="事件分发主要过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -789,17 +756,16 @@
       
         
           
-            <ol>
-<li>Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中ViewGroup又继承于View。</li>
-<li>ViewGroup和View组成了一个树状结构，根节点为Activity内部包含的一个ViwGroup。</li>
-<li>触摸事件由Action_Down、Action_Move、Aciton_UP组成，其中一次完整的触摸事件中，Down和Up都只有一个，Move有若干个，可以为0个。</li>
-<li>当Acitivty接收到Touch事件时，将遍历子View进行Down事件的分发。ViewGroup的遍历可以看成是递归的。分发的目的是为了找到真正要处理本次完整触摸事件的View，这个View会在onTouchuEvent结果返回true。</li>
-<li>当某个子View返回true时，会中止Down事件的分发，同时在ViewGroup中记录该子View。接下去的Move和Up事件将由该子View直接进行处理。由于子View是保存在ViewGroup中的，多层ViewGroup的节点结构时，上级ViewGroup保存的会是真实处理事件的View所在的ViewGroup对象:如ViewGroup0-ViewGroup1-TextView的结构中，TextView返回了true，它将被保存在ViewGroup1中，而ViewGroup1也会返回true，被保存在ViewGroup0中。当Move和UP事件来时，会先从ViewGroup0传递至ViewGroup1，再由ViewGroup1传递至TextView。</li>
-<li>当ViewGroup中所有子View都不捕获Down事件时，将触发ViewGroup自身的onTouch事件。触发的方式是调用super.dispatchTouchEvent函数，即父类View的dispatchTouchEvent方法。在所有子View都不处理的情况下，触发Acitivity的onTouchEvent方法。</li>
-<li>onInterceptTouchEvent有两个作用：1.拦截Down事件的分发。2.中止Up和Move事件向目标View传递，使得目标View所在的ViewGroup捕获Up和Move事件。</li>
-</ol>
-
           
+Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/17/事件分发主要过程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -865,7 +831,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/head.jpg"
                alt="山水相逢-z" />
           <p class="site-author-name" itemprop="name">山水相逢-z</p>
            
@@ -1086,6 +1052,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pDFQSg8WrbOU8b7ywddvHyl9-gzGzoHsz", "qla66s4pHlSSReKhrrngidRE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
