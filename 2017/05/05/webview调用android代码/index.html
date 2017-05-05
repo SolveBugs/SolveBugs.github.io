@@ -79,8 +79,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml" />
 
@@ -110,7 +108,7 @@ webview提供了一个方法addJavascriptInterface()来满足这种需求。
 
 客户端定义一个类，并定义需要的方法，例如：
 1234567891011121314151">
-<meta property="og:updated_time" content="2017-05-05T10:34:51.000Z">
+<meta property="og:updated_time" content="2017-05-05T10:37:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webview调用android代码">
 <meta name="twitter:description" content="在开发的时候经常会用到webview，必然会涉及到webview与客户端的交互，比如在网页上进行某个操作后，需要在app上显示一个提示，提示内容由网页提供，这时候就需要js来调用客户端的java代码了。
@@ -383,7 +381,7 @@ webview提供了一个方法addJavascriptInterface()来满足这种需求。
 </li>
 <li><p>生成第一步中定义的类的实例并添加给webview。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webView.addJavascriptInterface(<span class="keyword">new</span> WebAppInterface(getActivity()), <span class="string">"TestObject"</span>);</div></pre></td></tr></table></figure>
-<p>这里的”Test”是随便起的名字，你可以改成其他的。这个名字主要是让webview的js调用的。</p>
+<p>这里的”TestObject”是随便起的名字，你可以改成其他的。这个名字主要是让webview的js调用的。</p>
 </li>
 <li><p>在js中通过”TestObject”对象调用客户端方法</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TestObject.showToastContent("haha")</div></pre></td></tr></table></figure>
