@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>ExpandableStickyListHeadersListView遇到的一个问题 | Blogs</title>
+  <title>使用AppOpsManager类检查通知权限是否开启 | Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
-ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：">
+  <meta name="description" content="最近产品统计用户通知权限打开率，用到了系统提供的AppOpsManager类，使用很简单，但是有一点要注意：这个类在4.4之前是没有的，如果不加判断会造成4.4以下设备崩溃。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ExpandableStickyListHeadersListView遇到的一个问题">
-<meta property="og:url" content="//litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/index.html">
+<meta property="og:title" content="使用AppOpsManager类检查通知权限是否开启">
+<meta property="og:url" content="//litten.me/2017/07/25/使用AppOpsManager类检查通知权限是否开启/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
-ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：">
-<meta property="og:updated_time" content="2017-07-25T06:23:34.000Z">
+<meta property="og:description" content="最近产品统计用户通知权限打开率，用到了系统提供的AppOpsManager类，使用很简单，但是有一点要注意：这个类在4.4之前是没有的，如果不加判断会造成4.4以下设备崩溃。">
+<meta property="og:updated_time" content="2017-07-25T07:01:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ExpandableStickyListHeadersListView遇到的一个问题">
-<meta name="twitter:description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
-ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：">
+<meta name="twitter:title" content="使用AppOpsManager类检查通知权限是否开启">
+<meta name="twitter:description" content="最近产品统计用户通知权限打开率，用到了系统提供的AppOpsManager类，使用很简单，但是有一点要注意：这个类在4.4之前是没有的，如果不加判断会造成4.4以下设备崩溃。">
   
     <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
   
@@ -142,33 +139,29 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-StickyListHeadersListView遇到的一个问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用AppOpsManager类检查通知权限是否开启" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ExpandableStickyListHeadersListView遇到的一个问题
+      使用AppOpsManager类检查通知权限是否开启
     </h1>
   
 
         
-        <a href="/2017/05/26/StickyListHeadersListView遇到的一个问题/" class="archive-article-date">
-  	<time datetime="2017-05-26T02:54:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
+        <a href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/" class="archive-article-date">
+  	<time datetime="2017-07-25T06:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近一直忙着版本更新，记录一下中间遇到的一些问题。</p>
-<p>ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：<br><a id="more"></a></p>
-<h3 id="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："><a href="#在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：" class="headerlink" title="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："></a>在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Attempt to invoke virtual method <span class="string">'void android.view.View.dispatchWindowFocusChanged() on a null object (大致意思是用一个空的对象调用了dispatchWindowFocusChanged（）方法)</span></div></pre></td></tr></table></figure>
-<p>起初以为是app逻辑问题，这样的话应该是必现的，但是试了华为，oppo，魅族以及小米后，都没有出现这个问题。于是goole，但是也没有搜到，怀疑是系统某个地方出现异常了…虽然没有搜到解决办法，但是也得解啊（不然没法儿上线…）</p>
-<p>中间也试了不少办法，但是都没用，最后想到，既然是View对象调用方法的时候出现异常导致程序崩溃，那我是不是可以复写这个方法，捕捉异常来保证不崩溃？于是重写方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispatchWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> hasFocus)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">super</span>.dispatchWindowFocusChanged(hasFocus);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>再在华为nexux p6上测试，问题解决。</p>
+        <p>最近产品统计用户通知权限打开率，用到了系统提供的AppOpsManager类，使用很简单，但是有一点要注意：这个类在4.4之前是没有的，如果不加判断会造成4.4以下设备崩溃。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">public static boolean isNotificationEnabled(Context context) &#123;</div><div class="line"></div><div class="line">        int currentApiVersion = Build.VERSION.SDK_INT;</div><div class="line">        if (currentApiVersion &lt; Build.VERSION_CODES.KITKAT) &#123;</div><div class="line">            //api4.4一下无法知道通知是否开启，默认返回false</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        AppOpsManager mAppOps = (AppOpsManager)</div><div class="line">                context.getSystemService(Context.APP_OPS_SERVICE);</div><div class="line">        ApplicationInfo appInfo = context.getApplicationInfo();</div><div class="line">        String pkg = context.getApplicationContext().getPackageName();</div><div class="line">        int uid = appInfo.uid;</div><div class="line">        Class appOpsClass = null; /* Context.APP_OPS_MANAGER */</div><div class="line">        try &#123;</div><div class="line">            appOpsClass = Class.forName(AppOpsManager.class.getName());</div><div class="line">            Method checkOpNoThrowMethod = appOpsClass.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class);</div><div class="line">            Field opPostNotificationValue = appOpsClass.getDeclaredField(OP_POST_NOTIFICATION);</div><div class="line">            int value = (int) opPostNotificationValue.get(Integer.class);</div><div class="line">            return ((int) checkOpNoThrowMethod.invoke(mAppOps, value, uid, pkg) == AppOpsManager.MODE_ALLOWED);</div><div class="line">        &#125; catch (ClassNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (NoSuchMethodException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (NoSuchFieldException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (InvocationTargetException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (IllegalAccessException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -264,7 +257,7 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://litten.me/2017/07/25/使用AppOpsManager类检查通知权限是否开启/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +271,9 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
   
 <nav id="article-nav">
   
-    <a href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用AppOpsManager类检查通知权限是否开启
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/05/webview调用android代码/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webview调用android代码</div>
+    <a href="/2017/05/26/StickyListHeadersListView遇到的一个问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ExpandableStickyListHeadersListView遇到的一个问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -320,8 +304,8 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "//litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/", 
-    sourceId: "StickyListHeadersListView遇到的一个问题",
+    url: "//litten.me/2017/07/25/使用AppOpsManager类检查通知权限是否开启/", 
+    sourceId: "使用AppOpsManager类检查通知权限是否开启",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

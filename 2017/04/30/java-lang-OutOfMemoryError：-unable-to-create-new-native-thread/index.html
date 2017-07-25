@@ -162,12 +162,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.OutOfMemoryError： unable to <span class="keyword">create</span> <span class="keyword">new</span> <span class="keyword">native</span> <span class="keyword">thread</span></div></pre></td></tr></table></figure></p>
+        <p>最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.OutOfMemoryError： unable to create new native thread</div></pre></td></tr></table></figure></p>
 <p>由字面意思也可以知道是内存溢出了，在网上查了一下，说是创建了太多的线程。但是同样环境下，我们另外一个项目用相同的方式打包就没有出现这个问题，而且另外一个项目比出现问题的项目还要复杂一些，stackoverflow有人遇到了同样的问题：<br><a id="more"></a><br><a href="http://stackoverflow.com/questions/39599959/android-studio-2-2-gradle-build-fails-with-java-lang-outofmemoryerror-unable-t" target="_blank" rel="external">http://stackoverflow.com/questions/39599959/android-studio-2-2-gradle-build-fails-with-java-lang-outofmemoryerror-unable-t</a></p>
 <p>他是把gradle插件版本回退解决的，猜想可能与gradle打包有关，对比了一下两个项目，发现编译版本不同，出现问题的项目编译版本较低，于是我把它从：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">buildToolsVersion <span class="string">'21.1.2'</span></div></pre></td></tr></table></figure>
 <p>升级成：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">buildToolsVersion '<span class="number">24.0</span><span class="number">.1</span>'</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">buildToolsVersion &apos;24.0.1&apos;</div></pre></td></tr></table></figure>
 <p>问题解决。</p>
 <p>具体什么原因还是没搞清，可能是旧的编译工具开启线程的极限过小，所以项目中以后还是用较新的吧。</p>
 

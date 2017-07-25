@@ -140,6 +140,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-使用AppOpsManager类检查通知权限是否开启" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/">使用AppOpsManager类检查通知权限是否开启</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/" class="archive-article-date">
+  	<time datetime="2017-07-25T06:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近产品统计用户通知权限打开率，用到了系统提供的AppOpsManager类，使用很简单，但是有一点要注意：这个类在4.4之前是没有的，如果不加判断会造成4.4以下设备崩溃。</p>
+        
+          <a class="article-more-a" href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-StickyListHeadersListView遇到的一个问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -314,7 +390,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.OutOfMemoryError： unable to <span class="keyword">create</span> <span class="keyword">new</span> <span class="keyword">native</span> <span class="keyword">thread</span></div></pre></td></tr></table></figure></p>
+        <p>最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.OutOfMemoryError： unable to create new native thread</div></pre></td></tr></table></figure></p>
 <p>由字面意思也可以知道是内存溢出了，在网上查了一下，说是创建了太多的线程。但是同样环境下，我们另外一个项目用相同的方式打包就没有出现这个问题，而且另外一个项目比出现问题的项目还要复杂一些，stackoverflow有人遇到了同样的问题：<br></p>
         
           <a class="article-more-a" href="/2017/04/30/java-lang-OutOfMemoryError：-unable-to-create-new-native-thread/#more">more >></a>

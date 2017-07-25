@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>ExpandableStickyListHeadersListView遇到的一个问题 | Blogs</title>
+  <title>Archives: 2017/7 | Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
-ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ExpandableStickyListHeadersListView遇到的一个问题">
-<meta property="og:url" content="//litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/index.html">
+  <meta name="description" content="Android开发过程中的经验总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blogs">
+<meta property="og:url" content="//litten.me/archives/2017/07/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
-ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：">
-<meta property="og:updated_time" content="2017-07-25T06:23:34.000Z">
+<meta property="og:description" content="Android开发过程中的经验总结">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ExpandableStickyListHeadersListView遇到的一个问题">
-<meta name="twitter:description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
-ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：">
+<meta name="twitter:title" content="Blogs">
+<meta name="twitter:description" content="Android开发过程中的经验总结">
   
     <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
   
@@ -142,67 +138,36 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-StickyListHeadersListView遇到的一个问题" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      ExpandableStickyListHeadersListView遇到的一个问题
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/" class="archive-article-date">
+  	<time datetime="2017-07-25T06:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/">使用AppOpsManager类检查通知权限是否开启</a>
     </h1>
   
 
-        
-        <a href="/2017/05/26/StickyListHeadersListView遇到的一个问题/" class="archive-article-date">
-  	<time datetime="2017-05-26T02:54:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近一直忙着版本更新，记录一下中间遇到的一些问题。</p>
-<p>ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：<br><a id="more"></a></p>
-<h3 id="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："><a href="#在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：" class="headerlink" title="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："></a>在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Attempt to invoke virtual method <span class="string">'void android.view.View.dispatchWindowFocusChanged() on a null object (大致意思是用一个空的对象调用了dispatchWindowFocusChanged（）方法)</span></div></pre></td></tr></table></figure>
-<p>起初以为是app逻辑问题，这样的话应该是必现的，但是试了华为，oppo，魅族以及小米后，都没有出现这个问题。于是goole，但是也没有搜到，怀疑是系统某个地方出现异常了…虽然没有搜到解决办法，但是也得解啊（不然没法儿上线…）</p>
-<p>中间也试了不少办法，但是都没用，最后想到，既然是View对象调用方法的时候出现异常导致程序崩溃，那我是不是可以复写这个方法，捕捉异常来保证不崩溃？于是重写方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispatchWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> hasFocus)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">super</span>.dispatchWindowFocusChanged(hasFocus);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>再在华为nexux p6上测试，问题解决。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/airpay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,124 +179,19 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/07/25/使用AppOpsManager类检查通知权限是否开启/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用AppOpsManager类检查通知权限是否开启
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/05/05/webview调用android代码/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webview调用android代码</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "//litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/", 
-    sourceId: "StickyListHeadersListView遇到的一个问题",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -354,8 +214,8 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
