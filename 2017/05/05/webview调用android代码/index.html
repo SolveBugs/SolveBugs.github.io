@@ -9,30 +9,18 @@
   <title>webview调用android代码 | Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在开发的时候经常会用到webview，必然会涉及到webview与客户端的交互，比如在网页上进行某个操作后，需要在app上显示一个提示，提示内容由网页提供，这时候就需要js来调用客户端的java代码了。
-webview提供了一个方法addJavascriptInterface()来满足这种需求。
-具体步骤：
-
-客户端定义一个类，并定义需要的方法，例如：
-1234567891011121314151">
+webview提供了一个方法addJavascriptInterface()来满足这种需求。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webview调用android代码">
 <meta property="og:url" content="//litten.me/2017/05/05/webview调用android代码/index.html">
 <meta property="og:site_name" content="Blogs">
 <meta property="og:description" content="在开发的时候经常会用到webview，必然会涉及到webview与客户端的交互，比如在网页上进行某个操作后，需要在app上显示一个提示，提示内容由网页提供，这时候就需要js来调用客户端的java代码了。
-webview提供了一个方法addJavascriptInterface()来满足这种需求。
-具体步骤：
-
-客户端定义一个类，并定义需要的方法，例如：
-1234567891011121314151">
-<meta property="og:updated_time" content="2017-07-25T06:16:33.000Z">
+webview提供了一个方法addJavascriptInterface()来满足这种需求。">
+<meta property="og:updated_time" content="2017-07-25T06:23:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webview调用android代码">
 <meta name="twitter:description" content="在开发的时候经常会用到webview，必然会涉及到webview与客户端的交互，比如在网页上进行某个操作后，需要在app上显示一个提示，提示内容由网页提供，这时候就需要js来调用客户端的java代码了。
-webview提供了一个方法addJavascriptInterface()来满足这种需求。
-具体步骤：
-
-客户端定义一个类，并定义需要的方法，例如：
-1234567891011121314151">
+webview提供了一个方法addJavascriptInterface()来满足这种需求。">
   
     <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
   
@@ -175,8 +163,7 @@ webview提供了一个方法addJavascriptInterface()来满足这种需求。
     <div class="article-entry" itemprop="articleBody">
       
         <p>在开发的时候经常会用到webview，必然会涉及到webview与客户端的交互，比如在网页上进行某个操作后，需要在app上显示一个提示，提示内容由网页提供，这时候就需要js来调用客户端的java代码了。</p>
-<p>webview提供了一个方法addJavascriptInterface()来满足这种需求。</p>
-<p>具体步骤：</p>
+<p>webview提供了一个方法addJavascriptInterface()来满足这种需求。<br><a id="more"></a><br>具体步骤：</p>
 <ol>
 <li><p>客户端定义一个类，并定义需要的方法，例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebAppInterface</span> </span>&#123;</div><div class="line">       Context mContext;</div><div class="line"></div><div class="line">       <span class="comment">/**</span></div><div class="line">        * Instantiate the interface and set the context</div><div class="line">        */</div><div class="line">       WebAppInterface(Context c) &#123;</div><div class="line">           mContext = c;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="comment">/**</span></div><div class="line">        * Show a toast from the web page</div><div class="line">        */</div><div class="line">       <span class="meta">@JavascriptInterface</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showToastContent</span><span class="params">(String content)</span> </span>&#123;</div><div class="line"></div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
