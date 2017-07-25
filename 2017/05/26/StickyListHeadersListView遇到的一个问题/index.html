@@ -10,20 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
 ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：
-在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：1Attempt to">
+在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：&amp;lt;!−− more">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ExpandableStickyListHeadersListView遇到的一个问题">
 <meta property="og:url" content="//litten.me/2017/05/26/StickyListHeadersListView遇到的一个问题/index.html">
 <meta property="og:site_name" content="Blogs">
 <meta property="og:description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
 ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：
-在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：1Attempt to">
-<meta property="og:updated_time" content="2017-05-26T03:12:54.000Z">
+在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：&amp;lt;!−− more">
+<meta property="og:updated_time" content="2017-07-25T06:14:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ExpandableStickyListHeadersListView遇到的一个问题">
 <meta name="twitter:description" content="最近一直忙着版本更新，记录一下中间遇到的一些问题。
 ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：
-在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：1Attempt to">
+在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：&amp;lt;!−− more">
   
     <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
   
@@ -167,7 +167,7 @@ ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的
       
         <p>最近一直忙着版本更新，记录一下中间遇到的一些问题。</p>
 <p>ExpandableStickyListHeadersListView这个开源库主要是实现列表分组的，常见的需求用它还是不错的，项目中也有用到这个控件，一直没有什么问题，但是，这期需求测试在用华为nexus p6做测试的时候，发现了一个奇怪的问题：</p>
-<h3 id="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："><a href="#在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：" class="headerlink" title="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："></a>在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Attempt to invoke virtual method <span class="string">'void android.view.View.dispatchWindowFocusChanged() on a null object (大致意思是用一个空的对象调用了dispatchWindowFocusChanged（）方法)</span></div></pre></td></tr></table></figure>
+<h3 id="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："><a href="#在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：" class="headerlink" title="在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下："></a>在列表快速滑动的时候，点击返回键离开当前界面，app会崩溃，崩溃日志如下：</h3><p>&lt;!−− more −−&gt;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Attempt to invoke virtual method <span class="string">'void android.view.View.dispatchWindowFocusChanged() on a null object (大致意思是用一个空的对象调用了dispatchWindowFocusChanged（）方法)</span></div></pre></td></tr></table></figure></p>
 <p>起初以为是app逻辑问题，这样的话应该是必现的，但是试了华为，oppo，魅族以及小米后，都没有出现这个问题。于是goole，但是也没有搜到，怀疑是系统某个地方出现异常了…虽然没有搜到解决办法，但是也得解啊（不然没法儿上线…）</p>
 <p>中间也试了不少办法，但是都没用，最后想到，既然是View对象调用方法的时候出现异常导致程序崩溃，那我是不是可以复写这个方法，捕捉异常来保证不崩溃？于是重写方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispatchWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> hasFocus)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">super</span>.dispatchWindowFocusChanged(hasFocus);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
@@ -478,7 +478,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="/“#”" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>暂无</a>
+              <a href="http://xiaoqiangblog.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>暂无</a>
             </li>
           
         </ul>

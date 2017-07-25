@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Blogs">
 <meta property="og:description" content="最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：1java.lang.OutOfMemoryError： unable to create new native thread
 由字面意思也可以知道是内存溢出了，在网上查了一下，说是创建了太多的线程。但是同样环境下，我们另外一个项目用相同的方式打包就没有出现这个问题，而且另外一个项目比出现问题的项目还要复">
-<meta property="og:updated_time" content="2017-04-30T06:52:42.000Z">
+<meta property="og:updated_time" content="2017-07-25T06:14:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java.lang.OutOfMemoryError： unable to create new native thread">
 <meta name="twitter:description" content="最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：1java.lang.OutOfMemoryError： unable to create new native thread
@@ -163,8 +163,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最新项目有版本更新，在打渠道包的时候老是刚打了一两个包的时候，就会抛出一个异常，导致打包失败：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.OutOfMemoryError： unable to <span class="keyword">create</span> <span class="keyword">new</span> <span class="keyword">native</span> <span class="keyword">thread</span></div></pre></td></tr></table></figure></p>
-<p>由字面意思也可以知道是内存溢出了，在网上查了一下，说是创建了太多的线程。但是同样环境下，我们另外一个项目用相同的方式打包就没有出现这个问题，而且另外一个项目比出现问题的项目还要复杂一些，stackoverflow有人遇到了同样的问题：</p>
-<p><a href="http://stackoverflow.com/questions/39599959/android-studio-2-2-gradle-build-fails-with-java-lang-outofmemoryerror-unable-t" target="_blank" rel="external">http://stackoverflow.com/questions/39599959/android-studio-2-2-gradle-build-fails-with-java-lang-outofmemoryerror-unable-t</a></p>
+<p>由字面意思也可以知道是内存溢出了，在网上查了一下，说是创建了太多的线程。但是同样环境下，我们另外一个项目用相同的方式打包就没有出现这个问题，而且另外一个项目比出现问题的项目还要复杂一些，stackoverflow有人遇到了同样的问题：<br>&lt;!−− more −−&gt;<br><a href="http://stackoverflow.com/questions/39599959/android-studio-2-2-gradle-build-fails-with-java-lang-outofmemoryerror-unable-t" target="_blank" rel="external">http://stackoverflow.com/questions/39599959/android-studio-2-2-gradle-build-fails-with-java-lang-outofmemoryerror-unable-t</a></p>
 <p>他是把gradle插件版本回退解决的，猜想可能与gradle打包有关，对比了一下两个项目，发现编译版本不同，出现问题的项目编译版本较低，于是我把它从：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">buildToolsVersion <span class="string">'21.1.2'</span></div></pre></td></tr></table></figure>
 <p>升级成：</p>
@@ -486,7 +485,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="/“#”" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>暂无</a>
+              <a href="http://xiaoqiangblog.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>暂无</a>
             </li>
           
         </ul>
