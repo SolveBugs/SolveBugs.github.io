@@ -140,6 +140,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-从源码梳理Retrofit网络请求过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/25/从源码梳理Retrofit网络请求过程/">从源码梳理Retrofit网络请求过程</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/25/从源码梳理Retrofit网络请求过程/" class="archive-article-date">
+  	<time datetime="2017-09-25T08:31:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过定义一个接口，在方法上加入相关注解，Retrofit框架就可以把它解析成对应的网络请求，使用非常方便，记录下从源码角度看这个过程是怎么实现的。</p>
+<p>一 Retrofit的引入<br>在Android Studio中引入Retrofit非常方便，目标最新版本是2.3，在app-build文件-dependencies节点下加入以下依赖即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.squareup.retrofit2:retrofit:2.3.0&apos;</div><div class="line">compile &apos;com.squareup.retrofit2:converter-gson:2.3.0&apos;</div><div class="line">compile &apos;com.squareup.retrofit2:adapter-rxjava2:2.3.0&apos;</div><div class="line"></div><div class="line">compile &apos;io.reactivex.rxjava2:rxandroid:2.0.1&apos;</div><div class="line">compile &apos;io.reactivex.rxjava2:rxjava:2.1.0&apos;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这里引入最后的两个依赖是为了与rx结合使用，可以先不加。</p>
+</blockquote>
+<p>二 Retrofit是如何通过接口来生成网络请求的</p>
+<p>首先，我们定一个接口，同时声明一个方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface ApiService &#123;</div><div class="line">    @GET(&quot;users/&#123;user&#125;/repos&quot;)</div><div class="line">    Call&lt;List&lt;Repo&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里我们要请求github某个用户下的所有仓库。</p>
+<p>调用很简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ApiService apiService = retrofit.create(ApiService.class);</div><div class="line">Call&lt;List&lt;Repo&gt;&gt; solveBus = apiService.listRepos(&quot;SolveBugs&quot;);</div><div class="line">solveBus.enqueue(new Callback&lt;List&lt;Repo&gt;&gt;() &#123;</div><div class="line">          @Override</div><div class="line">          public void onResponse(Call&lt;List&lt;Repo&gt;&gt; call,   Response&lt;List&lt;Repo&gt;&gt; response) &#123;</div><div class="line">               List&lt;Repo&gt; repoList = response.body();</div><div class="line">               StringBuilder sb = new StringBuilder();</div><div class="line">               for (Repo repo : repoList) &#123;</div><div class="line">                   sb.append(repo.getName());</div><div class="line">                   sb.append(&quot;\n&quot;);</div><div class="line">               &#125;</div><div class="line">               textView.setText(sb.toString());</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           @Override</div><div class="line">           public void onFailure(Call&lt;List&lt;Repo&gt;&gt; call, Throwable t) &#123;</div><div class="line"></div><div class="line">           &#125;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure></p>
+<p>来看retrofit. create()方法</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/684106-47a07650f432ca27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-09-25 下午4.01.15.png"></p>
+<p>这个方法返回的是一个动态代理对象，当我们用这个对象调用listRepos方法的时候实际上会走到这里的invoke方法，在这个方法里，首先根据接口定义的方法，生成一个ServiceMethod对象，看一下ServiceMethod这个类的注释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Adapts an invocation of an interface method into an HTTP call.</div></pre></td></tr></table></figure></p>
+<p>所以这个类就是一个关于http请求信息的封装。那么是怎么封装的呢？<br>主要逻辑在loadServiceMethod方法里。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ServiceMethod&lt;?, ?&gt; loadServiceMethod(Method method) &#123;</div><div class="line">    ServiceMethod&lt;?, ?&gt; result = serviceMethodCache.get(method);</div><div class="line">    if (result != null) return result;</div><div class="line"></div><div class="line">    synchronized (serviceMethodCache) &#123;</div><div class="line">      result = serviceMethodCache.get(method);</div><div class="line">      if (result == null) &#123;</div><div class="line">        result = new ServiceMethod.Builder&lt;&gt;(this, method).build();</div><div class="line">        serviceMethodCache.put(method, result);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>逻辑很清晰，首先从缓存里取，如果没有的传入method(即我们声明的接口中的方法对象)，通过build方法生成一个，然后放入缓存。<br>在build方法中，遍历method的所有注解，来取出其中的信息，比如请求方法以及地址等：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (Annotation annotation : methodAnnotations) &#123;</div><div class="line">       parseMethodAnnotation(annotation);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/684106-dbe65fae6d6b174f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-09-25 下午4.12.36.png"></p>
+<p>拿到封装好的ServiceMethod对象后，构造一个OkHttpCall对象，以便与进行真正的网络请求（Retrofit基于OkHttp实现网络请求）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OkHttpCall&lt;Object&gt; okHttpCall = new OkHttpCall&lt;&gt;(serviceMethod, args);</div></pre></td></tr></table></figure></p>
+<p>回到最开始调用的地方：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/684106-76919bee9db0a89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这里真正调用的是okHttpCall对象的enqueue方法,这里进行的就是具体的网络请求操作了。</p>
+<p>代码逻辑其实还是比较清晰的，主要是用到了很多设计模式，所以看起来可能有些费劲，里边儿的细节还要细细研究。（逃，继续看源码去）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/25/从源码梳理Retrofit网络请求过程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-使用AppOpsManager类检查通知权限是否开启" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -682,85 +775,10 @@
 
 
   
-    <article id="post-事件分发主要过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/17/事件分发主要过程/">事件分发主要过程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/17/事件分发主要过程/" class="archive-article-date">
-  	<time datetime="2017-01-17T05:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>Touch事件分发中只有两个主角:ViewGroup和View。ViewGroup包含onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent三个相关事件。View包含dispatchTouchEvent、onTouchEvent两个相关事件。其中ViewGroup又继承于View。</li>
-<li>ViewGroup和View组成了一个树状结构，根节点为Activity内部包含的一个ViwGroup。</li>
-</ol>
-        
-          <a class="article-more-a" href="/2017/01/17/事件分发主要过程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/17/事件分发主要过程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
