@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识点总结," />
+  <meta name="keywords" content="开发经验," />
 
 
 
@@ -92,19 +92,16 @@
 
 
 
-<meta name="description" content="String是所有语言中最常用的一个类。我们知道在Java中，String是不可变的、final的。Java在运行时也保存了一个字符串池(String pool)，这使得String成为了一个特别的类。
-String类不可变性的好处:…">
+<meta name="description" content="公司项目之前support Library 版本比较混乱，各moudle有好几个版本的v7包和v4包，而且版本还比较低，今天抽时间统一了下支持库以及buildToolsVersion等的版本，但是遇到了两个问题，记录一下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String类设计成不可变的好处">
-<meta property="og:url" content="//litten.me/2017/10/11/String类设计成不可变的好处/index.html">
+<meta property="og:title" content="升级Android支持库版本遇到的两个问题">
+<meta property="og:url" content="//litten.me/2017/10/16/升级Android支持库版本遇到的两个问题/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="String是所有语言中最常用的一个类。我们知道在Java中，String是不可变的、final的。Java在运行时也保存了一个字符串池(String pool)，这使得String成为了一个特别的类。
-String类不可变性的好处:…">
-<meta property="og:updated_time" content="2017-10-11T05:40:56.000Z">
+<meta property="og:description" content="公司项目之前support Library 版本比较混乱，各moudle有好几个版本的v7包和v4包，而且版本还比较低，今天抽时间统一了下支持库以及buildToolsVersion等的版本，但是遇到了两个问题，记录一下。">
+<meta property="og:updated_time" content="2017-10-16T09:50:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="String类设计成不可变的好处">
-<meta name="twitter:description" content="String是所有语言中最常用的一个类。我们知道在Java中，String是不可变的、final的。Java在运行时也保存了一个字符串池(String pool)，这使得String成为了一个特别的类。
-String类不可变性的好处:…">
+<meta name="twitter:title" content="升级Android支持库版本遇到的两个问题">
+<meta name="twitter:description" content="公司项目之前support Library 版本比较混乱，各moudle有好几个版本的v7包和v4包，而且版本还比较低，今天抽时间统一了下支持库以及buildToolsVersion等的版本，但是遇到了两个问题，记录一下。">
 
 
 
@@ -132,13 +129,13 @@ String类不可变性的好处:…">
 
 
 
-  <link rel="canonical" href="//litten.me/2017/10/11/String类设计成不可变的好处/"/>
+  <link rel="canonical" href="//litten.me/2017/10/16/升级Android支持库版本遇到的两个问题/"/>
 
 
 
 
 
-  <title>String类设计成不可变的好处 | Blogs</title>
+  <title>升级Android支持库版本遇到的两个问题 | Blogs</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +264,7 @@ String类不可变性的好处:…">
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="//litten.me/2017/10/11/String类设计成不可变的好处/">
+    <link itemprop="mainEntityOfPage" href="//litten.me/2017/10/16/升级Android支持库版本遇到的两个问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="山水相逢-z">
@@ -288,7 +285,7 @@ String类不可变性的好处:…">
             
             
               
-                String类设计成不可变的好处
+                升级Android支持库版本遇到的两个问题
               
             
           </h1>
@@ -303,8 +300,8 @@ String类不可变性的好处:…">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T13:36:36+08:00">
-                2017-10-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T17:49:33+08:00">
+                2017-10-16
               </time>
             
 
@@ -322,7 +319,7 @@ String类不可变性的好处:…">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/10/11/String类设计成不可变的好处/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/10/16/升级Android支持库版本遇到的两个问题/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -331,7 +328,7 @@ String类不可变性的好处:…">
 
           
           
-             <span id="/2017/10/11/String类设计成不可变的好处/" class="leancloud_visitors" data-flag-title="String类设计成不可变的好处">
+             <span id="/2017/10/16/升级Android支持库版本遇到的两个问题/" class="leancloud_visitors" data-flag-title="升级Android支持库版本遇到的两个问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -359,12 +356,16 @@ String类不可变性的好处:…">
       
 
       
-        <p>String是所有语言中最常用的一个类。我们知道在Java中，String是不可变的、final的。Java在运行时也保存了一个字符串池(String pool)，这使得String成为了一个特别的类。</p>
-<p>String类不可变性的好处:…<br><a id="more"></a><br>1.只有当字符串是不可变的，字符串池才有可能实现。字符串池的实现可以在运行时节约很多heap空间，因为不同的字符串变量都指向池中的同一个字符串。但如果字符串是可变的，那么String interning将不能实现(译者注：Stringinterning是指对不同的字符串仅仅只保存一个，即不会保存多个相同的字符串。，因为这样的话，如果变量改变了它的值，那么其它指向这个值的变量 的值也会一起改变。</p>
-<p>2.如果字符串是可变的，那么会引起很严重的安全问题。譬如，数据库的用户名、密码都是以字符串的形式传入来获得数据库的连 接，或者在socket编程中，主机名和端口都是以字符串的形式传入。因为字符串是不可变的，所以它的值是不可改变的，否则黑客们可以钻到空子，改变字符 串指向的对象的值，造成安全漏洞。</p>
-<p>3.因为字符串是不可变的，所以是多线程安全的，同一个字符串实例可以被多个线程共享。这样便不用因为线程安全问题而使用同步。字符串自己便是线程安全的。</p>
-<p>4.类加载器要用到字符串，不可变性提供了安全性，以便正确的类被加载。譬如你想加载java.sql.Connection类，而这个值被改成了myhacked.Connection，那么会对你的数据库造成不可知的破坏。</p>
-<p>5.因为字符串是不可变的，所以在它创建的时候hashcode就被缓存了，不需要重新计算。这就使得字符串很适合作为Map中的键，字符串的处理速度要快过其它的键对象。这就是HashMap中的键往往都使用字符串。</p>
+        <p>公司项目之前support Library 版本比较混乱，各moudle有好几个版本的v7包和v4包，而且版本还比较低，今天抽时间统一了下支持库以及buildToolsVersion等的版本，但是遇到了两个问题，记录一下。<br><a id="more"></a></p>
+<p>###1. 升级buildToolsVersion至26<br>最新的buildToolsVersion已经到26了，照之前方式，直接在build文件中将buildToolsVersion后的引用版本改为26.0.2，然后同步，发现编不过去，提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[failed to find build tools revision 26.0.2]</div></pre></td></tr></table></figure></p>
+<p>查了一下，从sdk 26开始，需要在根目录build文件的repositories加上以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">        jcenter()</div><div class="line">        maven &#123;</div><div class="line">            url &quot;https://maven.google.com&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>再次编译，成功。</p>
+<p>###2. 在主题设置隐藏ActionBar无效<br>最初我的appcompat-v7版本是20，所以activity继承的是ActionBarActivity，所以在style文件里是这样设置是有用的的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;item name=&quot;android:windowActionBar&quot; tools:targetApi=&quot;honeycomb&quot;&gt;false&lt;/item&gt;</div><div class="line">&lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;</div></pre></td></tr></table></figure></p>
+<p>升级到26.1.0后，ActionBarActivity被AppCompatActivity替代，这时候用android:windowActionBar这种方式设置就不行了，改为以下方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;item name=&quot;windowActionBar&quot; tools:targetApi=&quot;honeycomb&quot;&gt;false&lt;/item&gt;</div><div class="line">&lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</div></pre></td></tr></table></figure></p>
+<p>即去掉“android：”,至于这两种写法的区别：</p>
+<blockquote>
+<p>若添加在属性名称前添加 andoird: 时即指定属性为 android 包下。<br>而项目的 Base Style AppTheme 继承自 Theme.AppCompat,位于 appcompat-v7 library, 而不是 android 包下。所以错误地使用 android:windowActionBar 和 android:windowNoTitle，应该使用 windowActionBar 和 windowNoTitle</p>
+</blockquote>
 
       
     </div>
@@ -394,7 +395,7 @@ String类不可变性的好处:…">
       
         <div class="post-tags">
           
-            <a href="/tags/知识点总结/" rel="tag"># 知识点总结</a>
+            <a href="/tags/开发经验/" rel="tag"># 开发经验</a>
           
         </div>
       
@@ -407,8 +408,8 @@ String类不可变性的好处:…">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/25/从源码梳理Retrofit网络请求过程/" rel="next" title="从源码梳理Retrofit网络请求过程">
-                <i class="fa fa-chevron-left"></i> 从源码梳理Retrofit网络请求过程
+              <a href="/2017/10/11/String类设计成不可变的好处/" rel="next" title="String类设计成不可变的好处">
+                <i class="fa fa-chevron-left"></i> String类设计成不可变的好处
               </a>
             
           </div>
@@ -416,10 +417,6 @@ String类不可变性的好处:…">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/16/升级Android支持库版本遇到的两个问题/" rel="prev" title="升级Android支持库版本遇到的两个问题">
-                升级Android支持库版本遇到的两个问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
