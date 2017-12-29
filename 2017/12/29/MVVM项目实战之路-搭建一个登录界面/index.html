@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="开发经验," />
 
 
 
@@ -92,28 +92,19 @@
 
 
 
-<meta name="description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。
-本文基于Android Studio3.0
-一.MVVM
-首先，当然要先简">
+<meta name="description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVVM项目实战之路-搭建一个登录界面 ">
 <meta property="og:url" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。
-本文基于Android Studio3.0
-一.MVVM
-首先，当然要先简">
-<meta property="og:image" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/mvvm.png">
-<meta property="og:image" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/view.png">
-<meta property="og:updated_time" content="2017-12-29T05:12:47.594Z">
+<meta property="og:description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/684106-e82c4da7c013db6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/684106-7533f1648100c53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-12-29T05:15:31.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVVM项目实战之路-搭建一个登录界面 ">
-<meta name="twitter:description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。
-本文基于Android Studio3.0
-一.MVVM
-首先，当然要先简">
-<meta name="twitter:image" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/mvvm.png">
+<meta name="twitter:description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/684106-e82c4da7c013db6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -275,7 +266,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -369,10 +360,11 @@
 
       
         <p>最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。</p>
+<a id="more"></a>
 <p>本文基于Android Studio3.0</p>
 <p>一.MVVM</p>
 <p>首先，当然要先简单了解下什么是MVVM开发模式，来看一张图：</p>
-<p><img src="/2017/12/29/MVVM项目实战之路-搭建一个登录界面/mvvm.png" alt="mvvm"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/684106-e82c4da7c013db6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mvvm.png"></p>
 <pre><code>可以看出，在MVVM中，我们的代码结构分为三层：
 </code></pre><ul>
 <li>View<br>这里主要进行视图控件的一些初始设置，不应该有任何的数据逻辑操作</li>
@@ -382,15 +374,15 @@
 <p>MVVM的具体意义以及与MVC,MVP等的对比这里不再赘述。</p>
 <p>二.实现一个登录界面</p>
 <p>这里，我们先用这种模式实现一个登录界面，界面简单如下：</p>
-<p><img src="/2017/12/29/MVVM项目实战之路-搭建一个登录界面/view.png" alt="view"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/684106-7533f1648100c53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png"></p>
 <p>需求很简单：用户输入用户名，密码，点击登录按钮后调用接口进行检查，成功则跳转到下一个界面，失败则提示错误信息。</p>
 <p>废话不多说，It`s time to show code!</p>
 <ol>
-<li>启用DataBinding<br>首先，要保证你的Gradle插件版本要大于 1.5.0-alpha1及以上（现在基本都比这个版本高了吧），然后在app下的build.gradle文件添加以下代码：<br>dataBinding {<br> enabled = true<br>}</li>
+<li>启用DataBinding<br>首先，要保证你的Gradle插件版本要大于 1.5.0-alpha1及以上（现在基本都比这个版本高了吧），然后在app下的build.gradle文件添加以下代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dataBinding &#123;</div><div class="line">    enabled = true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>2.添加ViewModel and LiveData</p>
-<pre><code>implementation &quot;android.arch.lifecycle:extensions:1.0.0&quot;
-</code></pre><p>annotationProcessor “android.arch.lifecycle:compiler:1.0.0”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">implementation &quot;android.arch.lifecycle:extensions:1.0.0&quot;</div><div class="line">annotationProcessor &quot;android.arch.lifecycle:compiler:1.0.0&quot;</div></pre></td></tr></table></figure>
 <p>3.登录页面activity_login.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 
@@ -555,7 +547,7 @@
                 intent.putExtra(&quot;token&quot;, s);
                 startActivity(intent);
                 finish();
-</code></pre><p>以上就是用这种新的开发模式来完成这个登录需求的一个记录，写法与之前确实有很大不同，其中的一些问题可能描述的也不是很清楚，欢迎大佬给出建议和指正错误，会慢慢改正。</p>
+</code></pre><p>以上就是用这种新的开发模式来完成这个登录需求的一个记录，在检查参数这里写的比较简单，其实应该用接口来检验，这又牵扯到一层封装，这里暂时先不写。可以看出，用这种模式写法与之前确实有很大不同，其中的一些问题可能描述的也不是很清楚，欢迎大佬给出建议和指正错误，会慢慢改正。</p>
 <p>demo代码地址：<a href="https://github.com/SolveBugs/MVVMDemo" target="_blank" rel="external">https://github.com/SolveBugs/MVVMDemo</a></p>
 
       
@@ -583,6 +575,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/开发经验/" rel="tag"># 开发经验</a>
+          
+        </div>
       
 
       
