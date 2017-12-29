@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Gradle," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -92,24 +92,28 @@
 
 
 
-<meta name="description" content="Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
-
-Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。">
+<meta name="description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。
+本文基于Android Studio3.0
+一.MVVM
+首先，当然要先简">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gradle 和Gradle Plugin区别">
-<meta property="og:url" content="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/index.html">
+<meta property="og:title" content="MVVM项目实战之路-搭建一个登录界面 ">
+<meta property="og:url" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
-
-Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。">
-<meta property="og:image" content="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png">
-<meta property="og:updated_time" content="2017-07-25T06:23:37.000Z">
+<meta property="og:description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。
+本文基于Android Studio3.0
+一.MVVM
+首先，当然要先简">
+<meta property="og:image" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/mvvm.png">
+<meta property="og:image" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/view.png">
+<meta property="og:updated_time" content="2017-12-29T05:12:47.594Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gradle 和Gradle Plugin区别">
-<meta name="twitter:description" content="Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。
-
-Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。">
-<meta name="twitter:image" content="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png">
+<meta name="twitter:title" content="MVVM项目实战之路-搭建一个登录界面 ">
+<meta name="twitter:description" content="最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。
+本文基于Android Studio3.0
+一.MVVM
+首先，当然要先简">
+<meta name="twitter:image" content="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/mvvm.png">
 
 
 
@@ -137,13 +141,13 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
 
 
 
-  <link rel="canonical" href="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/"/>
+  <link rel="canonical" href="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/"/>
 
 
 
 
 
-  <title>Gradle 和Gradle Plugin区别 | Blogs</title>
+  <title>MVVM项目实战之路-搭建一个登录界面  | Blogs</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,8 +275,8 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="//litten.me/2017/04/26/Gradle-和Gradle-Plugin区别/">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="//litten.me/2017/12/29/MVVM项目实战之路-搭建一个登录界面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="山水相逢-z">
@@ -293,7 +297,7 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
             
             
               
-                Gradle 和Gradle Plugin区别
+                MVVM项目实战之路-搭建一个登录界面 
               
             
           </h1>
@@ -308,8 +312,8 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T13:24:11+08:00">
-                2017-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T13:10:31+08:00">
+                2017-12-29
               </time>
             
 
@@ -327,7 +331,7 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/04/26/Gradle-和Gradle-Plugin区别/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/12/29/MVVM项目实战之路-搭建一个登录界面/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -336,7 +340,7 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
 
           
           
-             <span id="/2017/04/26/Gradle-和Gradle-Plugin区别/" class="leancloud_visitors" data-flag-title="Gradle 和Gradle Plugin区别">
+             <span id="/2017/12/29/MVVM项目实战之路-搭建一个登录界面/" class="leancloud_visitors" data-flag-title="MVVM项目实战之路-搭建一个登录界面 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -364,30 +368,195 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
       
 
       
-        <ul>
-<li><p>Gradle是一个构建工具，它是一个独立的项目。什么是构建工具呢？我的理解是：通过人为配置，它可以以自动化的形式执行一整套流程，例如在Android Studio用Gradle编译，打包等。</p>
-</li>
-<li><p>Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让开发者更好的使用，因此专门开发了一个插件来支持Gradle。</p>
-</li>
+        <p>最近有一个新任务，给公司内部开发一个App，需求初始很简单，刚好之前一直在看MVVM这种开发模式，所以决定用Data Binding Library以及ViewModel等实现这种模式，因为代码和之前写法确实有很大不同，所以决定将这个app实现过程中这种新的模式的一些具体业务场景的代码写法用博客记录下来，希望对其他人有用。</p>
+<p>本文基于Android Studio3.0</p>
+<p>一.MVVM</p>
+<p>首先，当然要先简单了解下什么是MVVM开发模式，来看一张图：</p>
+<p><img src="/2017/12/29/MVVM项目实战之路-搭建一个登录界面/mvvm.png" alt="mvvm"></p>
+<pre><code>可以看出，在MVVM中，我们的代码结构分为三层：
+</code></pre><ul>
+<li>View<br>这里主要进行视图控件的一些初始设置，不应该有任何的数据逻辑操作</li>
+<li>Model<br>在这层中，会定义我们的实体类，以及所有的业务逻辑操作，比如通过数据库或者网络来操作数据等都应该在这里进行</li>
+<li>ViewModel<br>就像上图一样，ViewModel是连接View与Model的中间桥梁，ViewModel与Model直接交互，处理完业务逻辑后，通过DataBinding将数据变化反应到用户界面上。</li>
 </ul>
-<a id="more"></a>
-<ul>
-<li><p>通常，在项目根目录下的build.gradle文件中设置Gradle Plugin版本：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">   	。。。</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.3.1'</span></div><div class="line">    &#125;</div><div class="line">    。。。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在 根目录/gradle/wrapper/gradle-wrapper.properties中配置Gradle下载路径：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-3.3-all.zip</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>Gradle与Android Studio中的Gradle插件之间有对应关系：</p>
-<p><img src="/2017/04/26/Gradle-和Gradle-Plugin区别/gradle-version-to-plugin.png" alt="version-version"></p>
-</li>
-<li><p>相关官方介绍：</p>
-<p><a href="https://developer.android.com/studio/releases/gradle-plugin.html#updating-gradle" target="_blank" rel="external">Android Plugin for Gradle Release Notes</a></p>
-<p><a href="http://tools.android.com/tech-docs/new-build-system" target="_blank" rel="external">Android Plugin各版本主要更新功能</a></p>
-<p><a href="http://services.gradle.org/distributions/" target="_blank" rel="external">Gradle版本列表</a></p>
-<p>​</p>
-</li>
-</ul>
+<p>MVVM的具体意义以及与MVC,MVP等的对比这里不再赘述。</p>
+<p>二.实现一个登录界面</p>
+<p>这里，我们先用这种模式实现一个登录界面，界面简单如下：</p>
+<p><img src="/2017/12/29/MVVM项目实战之路-搭建一个登录界面/view.png" alt="view"></p>
+<p>需求很简单：用户输入用户名，密码，点击登录按钮后调用接口进行检查，成功则跳转到下一个界面，失败则提示错误信息。</p>
+<p>废话不多说，It`s time to show code!</p>
+<ol>
+<li>启用DataBinding<br>首先，要保证你的Gradle插件版本要大于 1.5.0-alpha1及以上（现在基本都比这个版本高了吧），然后在app下的build.gradle文件添加以下代码：<br>dataBinding {<br> enabled = true<br>}</li>
+</ol>
+<p>2.添加ViewModel and LiveData</p>
+<pre><code>implementation &quot;android.arch.lifecycle:extensions:1.0.0&quot;
+</code></pre><p>annotationProcessor “android.arch.lifecycle:compiler:1.0.0”</p>
+<p>3.登录页面activity_login.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+
+    &lt;data&gt;
+
+        &lt;variable
+            name=&quot;viewmodel&quot;
+            type=&quot;com.example.zq.mvvmdemo.user.LoginViewModel&quot; /&gt;
+    &lt;/data&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:gravity=&quot;center_horizontal&quot;
+        android:orientation=&quot;vertical&quot;&gt;
+
+
+        &lt;EditText
+            android:layout_width=&quot;240dp&quot;
+            android:layout_height=&quot;40dp&quot;
+            android:layout_centerHorizontal=&quot;true&quot;
+            android:layout_marginTop=&quot;100dp&quot;
+            android:hint=&quot;@string/login_name&quot;
+            android:text=&quot;@={viewmodel.loginName}&quot; /&gt;
+
+        &lt;EditText
+            android:layout_width=&quot;240dp&quot;
+            android:layout_height=&quot;40dp&quot;
+            android:layout_below=&quot;@+id/name&quot;
+            android:layout_centerHorizontal=&quot;true&quot;
+            android:layout_marginTop=&quot;30dp&quot;
+            android:hint=&quot;@string/login_password&quot;
+            android:text=&quot;@={viewmodel.loginPass}&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/submit&quot;
+            android:layout_width=&quot;240dp&quot;
+            android:layout_height=&quot;40dp&quot;
+            android:layout_below=&quot;@+id/password&quot;
+            android:layout_centerHorizontal=&quot;true&quot;
+            android:layout_marginTop=&quot;40dp&quot;
+            android:text=&quot;@string/login&quot;
+            android:textSize=&quot;16dp&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/layout&gt;
+</code></pre><p>从这里开始，就会发现和我们之前的写法有很大的区别了，之前的xml文件根节点是LinearLayout或者RelativeLayout等布局，但是在使用DataBinding后，我们的xml文件可以概括成这样：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;layout &gt;
+    &lt;data&gt;
+    .......
+    &lt;/data&gt;
+    &lt;LinearLayout&gt;
+        ........
+        自己的布局
+        ........
+    &lt;/LinearLayout&gt;
+&lt;/layout&gt;
+</code></pre><p>最外层以layout标签包裹，里边用data标签表示我们要绑定的数据的名字以及类型，然后就是我们自己的布局。</p>
+<p>之前我们已经知道，ViewModel是View与Model层交互的桥梁，所以具体用到的业务数据，比如这里用户名，密码等我这里全部放到了ViewModel中，然后将ViewModel与View进行绑定：</p>
+<pre><code>&lt;data&gt;
+        &lt;variable
+            name=&quot;viewmodel&quot;
+            type=&quot;com.example.zq.mvvmdemo.user.LoginViewModel&quot; /&gt;
+ &lt;/data&gt;
+</code></pre><p>4.LoginViewModel文件</p>
+<pre><code>public class LoginViewModel extends AndroidViewModel {
+    private static final String TAG = &quot;LoginViewModel&quot;;
+
+    private final SingleLiveEvent&lt;String&gt; mOpenUserList = new SingleLiveEvent&lt;&gt;();
+    private final SnackbarMessage mSnackbarText = new SnackbarMessage();
+    private final Context mContext; // To avoid leaks, this must be an Application Context.
+
+    public final ObservableField&lt;String&gt; loginName = new ObservableField&lt;&gt;();
+    public final ObservableField&lt;String&gt; loginPass = new ObservableField&lt;&gt;();
+
+    public LoginViewModel(Application mContext) {
+        super(mContext);
+        this.mContext = mContext.getApplicationContext();
+    }
+
+    public SingleLiveEvent&lt;String&gt; getmOpenUserList() {
+        return mOpenUserList;
+    }
+
+    SnackbarMessage getSnackbarMessage() {
+        return mSnackbarText;
+    }
+
+    private void login(String loginName, String loginPass) {
+
+        if (TextUtils.isEmpty(loginName)) {
+            mSnackbarText.setValue(mContext.getString(R.string.login_name_not_input));
+            return;
+        }
+        if (TextUtils.isEmpty(loginPass)) {
+            mSnackbarText.setValue(mContext.getString(R.string.login_pass_not_input));
+            return;
+        }
+
+
+        mOpenUserList.setValue(&quot;123456&quot;);
+
+    }
+
+
+    public void login() {
+        login(loginName.get(), loginPass.get());
+    }
+}
+</code></pre><p>首先我们来看loginName和loginPass这两个变量，ObservableField为DataBinding中提供的一个类，它使我们的对象变得可观测，即修改界面上的值，对应的loginName和loginPass的值就会改变，反之亦然。</p>
+<p>再看mOpenUserList与mSnackbarText，它们是LiveData类型的，LiveData是一个数据持有类，并且在给定的生命周期中其变化是可观测的，这里用来处理ViewModels与 UI views (activities and fragments)的一些交互。</p>
+<p>login()方法由点击登录按钮后触发，这里注意，因为loginName和loginPass已经与我们的视图文件绑定在一起了，所以就不用在调用的时候从EditText获取文本内容再传进来了。</p>
+<p>getmOpenUserList()与getSnackbarMessage()将mOpenUserList与mSnackbarText公布给 UI views (activities and fragments)，来处理一些交互，在这个例子里，主要是弹出提示以及跳转页面。</p>
+<p>5.LoginActivity文件</p>
+<pre><code>public class LoginActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ViewModelFactory factory = ViewModelFactory.getInstance(getApplication());
+        final LoginViewModel loginViewModel = ViewModelProviders.of(this, factory).get(LoginViewModel.class);
+
+        final ActivityLoginBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        binding.setViewmodel(loginViewModel);
+
+        loginViewModel.getmOpenUserList().observe(this, new Observer&lt;String&gt;() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                Intent intent = new Intent(LoginActivity.this, UserListActivity.class);
+                intent.putExtra(&quot;token&quot;, s);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        loginViewModel.getSnackbarMessage().observe(this, new SnackbarMessage.SnackbarObserver() {
+            @Override
+            public void onNewMessage(String message) {
+                SnackbarUtils.showSnackbar(binding.getRoot(), message);
+            }
+        });
+
+        findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginViewModel.login();
+            }
+        });
+    }
+
+}
+</code></pre><p>这里就相当于View层，按照前面说的，这里应该只有一些界面的设置，不应该有任何的逻辑处理。ActivityLoginBinding是自动生成的，注意，在写完xml文件后要Build-Make Project一下，才会生成这个文件。</p>
+<p>梳理一下逻辑：</p>
+<p>点击登录按钮后，会调用LoginViewModel中的login()方法，进行参数的检查，如果参数不合法，为mSnackbarText设置对应的文案提示，因为我们在Activity已经监测了mSnackbarText的 变化，当它的值发生变化后，会通过回调通知回来，我们可以进行提示：</p>
+<pre><code>SnackbarUtils.showSnackbar(binding.getRoot(), message);
+</code></pre><p>当参数全部合法后，改变mOpenUserList，同样会触发回调，进而跳转到下一个界面：</p>
+<pre><code>Intent intent = new Intent(LoginActivity.this, UserListActivity.class);
+                intent.putExtra(&quot;token&quot;, s);
+                startActivity(intent);
+                finish();
+</code></pre><p>以上就是用这种新的开发模式来完成这个登录需求的一个记录，写法与之前确实有很大不同，其中的一些问题可能描述的也不是很清楚，欢迎大佬给出建议和指正错误，会慢慢改正。</p>
+<p>demo代码地址：<a href="https://github.com/SolveBugs/MVVMDemo" target="_blank" rel="external">https://github.com/SolveBugs/MVVMDemo</a></p>
 
       
     </div>
@@ -415,12 +584,6 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
-          
-        </div>
-      
 
       
         
@@ -430,8 +593,8 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/14/Butter-Knife使用/" rel="next" title="Butter Knife使用">
-                <i class="fa fa-chevron-left"></i> Butter Knife使用
+              <a href="/2017/10/16/升级Android支持库版本遇到的两个问题/" rel="next" title="升级Android支持库版本遇到的两个问题">
+                <i class="fa fa-chevron-left"></i> 升级Android支持库版本遇到的两个问题
               </a>
             
           </div>
@@ -439,10 +602,6 @@ Gradle Plugin:谷歌在Android Studio中以Gradle作为构建系统，为了让�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/30/java-lang-OutOfMemoryError：-unable-to-create-new-native-thread/" rel="prev" title="java.lang.OutOfMemoryError： unable to create new native thread">
-                java.lang.OutOfMemoryError： unable to create new native thread <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
